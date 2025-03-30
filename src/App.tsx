@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.scss';
 import Carousel from './components/Carousel';
 
@@ -25,10 +25,13 @@ const App: React.FC<State> = () => {
     './img/10.png',
   ];
 
+  useEffect(() => {
+    document.title = 'Carousel';
+  }, []);
+
   return (
     <div className="App">
       {/* eslint-disable-next-line */}
-      <title>Carousel</title>
       <h1 data-cy="title">Carousel with {images.length} images</h1>
       <div className="controls">
         <label>
@@ -36,7 +39,7 @@ const App: React.FC<State> = () => {
           <input
             type="number"
             value={itemWidth}
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setItemWidth(Number(e.target.value));
             }}
           />
@@ -47,7 +50,7 @@ const App: React.FC<State> = () => {
           <input
             type="number"
             value={frameSize}
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setFrameSize(Number(e.target.value));
             }}
           />
@@ -58,7 +61,7 @@ const App: React.FC<State> = () => {
           <input
             type="number"
             value={step}
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setStep(Number(e.target.value));
             }}
           />
@@ -68,7 +71,7 @@ const App: React.FC<State> = () => {
           <input
             type="number"
             value={animationDuration}
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setAnimationDuration(Number(e.target.value));
             }}
           />
