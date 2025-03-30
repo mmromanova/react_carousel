@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Carousel.scss';
 
-export interface Carousel {
+export interface CarouselProps {
   images: string[];
   itemWidth?: number;
   frameSize?: number;
@@ -10,7 +10,7 @@ export interface Carousel {
   infinite?: boolean;
 }
 
-export const Carousel: React.FC<Carousel> = ({
+export const Carousel: React.FC<CarouselProps> = ({
   images,
   itemWidth = 130,
   frameSize = 3,
